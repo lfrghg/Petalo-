@@ -1,5 +1,8 @@
 #coding: utf-8
 
+py -m pip install -r requirements.txt
+
+
 from numpy import empty
 import streamlit as st
 import pandas as pd
