@@ -1,6 +1,6 @@
 #coding: utf-8
 
-py -m pip install pydataxm
+#py -m pip install pydataxm
 
 from numpy import empty
 import streamlit as st
