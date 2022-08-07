@@ -1,6 +1,5 @@
 #coding: utf-8
 
-pip install pydataxm
 from numpy import empty
 import streamlit as st
 import pandas as pd
