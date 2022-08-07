@@ -34,23 +34,24 @@ if date_beg > date_end:
 from pydataxm.pydataxm import ReadDB  
 XM        = ReadDB()
 df_Gen   = XM.request_data("Gene",1,date_beg, date_end )
-df_Gen = df_Gen.drop(columns=['Id'])
-df_recursos = XM.request_data('ListadoRecursos',0,date_beg,date_end) 
-df_gen_full = pd.merge(df_Gen,df_recursos,left_on=['Values_code'],right_on=['Values_Code'])
-df_solar = df_gen_full[df_gen_full.Values_EnerSource=='RAD SOLAR']
-#df_solar = df_gen_full[df_gen_full.Values_Name=='LA SIERPE']
-df_solar = df_gen_full[df_gen_full.Values_Name=='PETALO DE CORDOBA I']  
+df_Gen
+#df_Gen = df_Gen.drop(columns=['Id'])
+#df_recursos = XM.request_data('ListadoRecursos',0,date_beg,date_end) 
+#df_gen_full = pd.merge(df_Gen,df_recursos,left_on=['Values_code'],right_on=['Values_Code'])
+#df_solar = df_gen_full[df_gen_full.Values_EnerSource=='RAD SOLAR']
+##df_solar = df_gen_full[df_gen_full.Values_Name=='LA SIERPE']
+#df_solar = df_gen_full[df_gen_full.Values_Name=='PETALO DE CORDOBA I']  
 
-df_Con   = XM.request_data("DemaComeNoReg",1,date_beg, date_end )
-df_Come = df_Con[df_Con.Values_code=='GNYC']
-#df_Come = df_Come.drop(columns=['Id','Values_code','Date'])
+#df_Con   = XM.request_data("DemaComeNoReg",1,date_beg, date_end )
+#df_Come = df_Con[df_Con.Values_code=='GNYC']
+##df_Come = df_Come.drop(columns=['Id','Values_code','Date'])
 
-df_Prec   = XM.request_data("PrecBolsNaci",0,date_beg, date_end)
+#df_Prec   = XM.request_data("PrecBolsNaci",0,date_beg, date_end)
 
-st.markdown("### Generación Pétalo de Córdoba:")
-df_solar
-st.markdown("### Consumos totales fronteras:")
-df_Come
-st.markdown("### Precios de bolsa:")
-df_Prec
+#st.markdown("### Generación Pétalo de Córdoba:")
+#df_solar
+#st.markdown("### Consumos totales fronteras:")
+#df_Come
+#st.markdown("### Precios de bolsa:")
+#df_Prec
 
