@@ -1,2 +1,1 @@
-
-$ pipenv install pydataxm
+py -m pip install pydataxm
