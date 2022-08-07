@@ -30,11 +30,24 @@ date_end = st.sidebar.date_input('Fecha final', tomorrow)
 if date_beg > date_end:
     st.sidebar.error('Error: La fecha final debe ser posterior a la fecha inicial')
    # st.sidebar.success('Fecha inicial: `%s`\n\nFecha final:`%s`' % (date_beg, date_end)) 
-    
-from pydataxm.pydataxm import ReadDB  
-XM        = ReadDB()
-df_Gen   = XM.request_data("Gene",1,date_beg, date_end )
-df_Gen
+ 
+from os import write
+from pydataxm import *                           #Se realiza la importación de las librerias necesarias para ejecutar
+import datetime as dt                            
+from pydataxm.pydataxm import ReadDB as apiXM    #Se importa la clase que invoca el servicio
+objetoAPI = pydataxm.ReadDB()  
+
+@st.cache
+def read_recursos(fecha_ini,fecha_fin):
+    df = apiXM.request_data(objetoAPI,"ListadoRecursos",0,fecha_ini,fecha_fin)   
+    df.to_csv("recursos.csv")
+    return df
+df_recursos=read_recursos(date_beg,date_end)
+df_recursos
+
+#from pydataxm.pydataxm import ReadDB  
+#XM        = ReadDB()
+#df_Gen   = XM.request_data("Gene",1,date_beg, date_end )
 #df_Gen = df_Gen.drop(columns=['Id'])
 #df_recursos = XM.request_data('ListadoRecursos',0,date_beg,date_end) 
 #df_gen_full = pd.merge(df_Gen,df_recursos,left_on=['Values_code'],right_on=['Values_Code'])
